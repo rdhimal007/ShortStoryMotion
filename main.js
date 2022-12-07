@@ -30,8 +30,11 @@ let x2 = 0;
 let y = 0;
 let y2 = 0;
 // sound effect
+let sound0;
 let sound;
-
+let sound2;
+let sound3;
+let sound4;
 // load image in the array
 function preload(){
     imageArray[0] = loadImage('slides/IntroPng1.png');
@@ -42,7 +45,11 @@ function preload(){
     imageArray[5] = loadImage('slides/pic6.jpg');
     imageArray[6] = loadImage('slides/pic7.jpg');
     imageArray[7] = loadImage('slides/pic8.jpg');
+    sound0 = loadSound('sound/pond.mp3');
     sound = loadSound('sound/DD.mp3');
+    sound2 = loadSound('sound/birds.mp3');
+    sound3 = loadSound('sound/Tibetan Song.mp3');
+    sound4 = loadSound('sound/Evil.mp3');
 
 }
 
@@ -74,8 +81,9 @@ function draw() {
     background(0);
     // look for the specific image counter
     // to create lightning effect
+
     if (currentImg == 5 || currentImg == 6){
-        sound.play();
+
         for (var i = 0; i < 20; i++) {
             x = x2;
             y = y2;
@@ -93,9 +101,7 @@ function draw() {
             }
         }
     }
-    else{
-        sound.stop();
-    }
+
 
     // deliver image
     image(imageArray[currentImg], 0, 0);
@@ -108,6 +114,18 @@ function draw() {
 
 }
 
+
+// check souund variables
+let check;  // look what sound
+let num;   // look what position
+function checkSound(check, num,currentImg){
+    if (currentImg == num){
+            check.play();
+    }
+    else{
+        check.stop();
+    }
+}
 // make the button for the mouse to click and move accordingly
 const setupButtons = _ => {
     previous = createButton('Prev');
@@ -122,5 +140,32 @@ const setupButtons = _ => {
 
     next.mouseClicked(_ => {
         if (currentImg < imageArray.length - 1) currentImg++;
+        if (currentImg == 5){
+            sound4.stop();
+            checkSound(sound, 5,currentImg);
+        }
+        else if(currentImg == 1){
+            sound0.stop();
+            checkSound(sound2, 1,currentImg);
+
+        }
+        else if(currentImg == 0){
+            checkSound(sound0, 0,currentImg);
+
+        }
+        else if(currentImg == 2){
+            sound2.stop();
+            checkSound(sound3, 2,currentImg);
+
+        }
+        else if(currentImg == 4){
+            sound3.stop();
+            checkSound(sound4, 4,currentImg);
+
+        }
+        else{
+            sound.stop();
+        }
+
     });
 };
