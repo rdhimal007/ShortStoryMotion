@@ -29,7 +29,8 @@ let x = 0
 let x2 = 0;
 let y = 0;
 let y2 = 0;
-
+// sound effect
+let sound;
 
 // load image in the array
 function preload(){
@@ -41,6 +42,8 @@ function preload(){
     imageArray[5] = loadImage('slides/pic6.jpg');
     imageArray[6] = loadImage('slides/pic7.jpg');
     imageArray[7] = loadImage('slides/pic8.jpg');
+    sound = loadSound('sound/thunder.mp3');
+
 }
 
 // create class to make text size, color
@@ -70,8 +73,9 @@ function draw() {
     // frameRate(1);
     background(0);
     // look for the specific image counter
-    // to light the wrath
-    if (currentImg == 5){
+    // to create lightning effect
+    if (currentImg == 5 || currentImg == 6){
+        sound.play();
         for (var i = 0; i < 20; i++) {
             x = x2;
             y = y2;
@@ -88,8 +92,6 @@ function draw() {
                 stroke(255, 255, random(0, 255));
             }
         }
-
-
     }
 
     // deliver image
