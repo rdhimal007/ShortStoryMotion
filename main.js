@@ -42,7 +42,7 @@ function preload(){
     imageArray[5] = loadImage('slides/pic6.jpg');
     imageArray[6] = loadImage('slides/pic7.jpg');
     imageArray[7] = loadImage('slides/pic8.jpg');
-    sound = loadSound('sound/thunder.mp3');
+    sound = loadSound('sound/DD.mp3');
 
 }
 
@@ -92,6 +92,9 @@ function draw() {
                 stroke(255, 255, random(0, 255));
             }
         }
+    }
+    else{
+        sound.stop();
     }
 
     // deliver image
