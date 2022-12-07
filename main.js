@@ -24,6 +24,13 @@ let caption = ["Long ago there was a lake near the forest called 'Khuttidangi Jh
     "got together as one tribe and formed a 'Dhimal Samaj'\n to help each other. A foundation to help each other in need " +
     " was established to provide manpower,\n tools and financial support during all the ceremonies. This community established at 1800 still exists today."];
 
+//make lightening variables
+let x = 0
+let x2 = 0;
+let y = 0;
+let y2 = 0;
+
+
 // load image in the array
 function preload(){
     imageArray[0] = loadImage('slides/IntroPng1.png');
@@ -52,16 +59,47 @@ function setup() {
     cv.parent("hello");
     // setup button for press
     setupButtons();
+
+    // set coordinates for the lightening
+    x2 = 0;
+    y2 = canvasHeight/2;
 }
+
+// here the fun  occurs
 function draw() {
     // frameRate(1);
     background(0);
+    // look for the specific image counter
+    // to light the wrath
+    if (currentImg == 5){
+        for (var i = 0; i < 20; i++) {
+            x = x2;
+            y = y2;
+            x2 = x + int(random(-20, 20));
+            y2 = y + int(random(-10, 20));
+            strokeWeight(random(1, 3));
+            strokeJoin(MITER);
+            line(x, y, x2, y2);
+
+            if ((x2 > canvasWidth) | (x2 < 0) | (y2 > canvasHeight) | (y2 < 0)) {
+                clear();
+                x2 = int(random(0, canvasWidth));
+                y2 = 0;
+                stroke(255, 255, random(0, 255));
+            }
+        }
+
+
+    }
+
     // deliver image
     image(imageArray[currentImg], 0, 0);
     // write caption
+    noStroke();
     textSize(15);
     fill("#c4c4ce");
     text(caption[currentImg],10, 720);
+    stroke(255, 255, random(0, 255));
 
 }
 
