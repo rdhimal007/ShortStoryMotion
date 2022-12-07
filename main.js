@@ -3,7 +3,7 @@
 
 
 // varaibles for the project cnavas
-let canvasWidth = 1000;
+let canvasWidth = 800;
 let canvasHeight = 800;
 let currentImg = 0;   // imageCounter or the caption counter
 let imageArray = []; // populate with image
