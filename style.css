@@ -1,7 +1,44 @@
-html, body {
+html, body{
     margin: 0;
     padding: 0;
 }
 canvas {
+    /*display: block;*/
+    position: relative;
+    /*object-position: bottom;*/
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    padding: 20px;
+    text-align: center;
+
+}
+
+
+.intro{
+    font-family: cursive;
+    text-align: center;
+    font-size: 40px;
+    stroke: #222252;
+    color: azure;
+    /*background-color: blueviolet;*/
+}
+.stylePara{
+    stroke: white;
+    /*text-decoration-color: blueviolet;*/
+    /*border-style: ridge;*/
+    /*background-color: #0c0d0e;*/
+    font-family: cursive;
+    color: white;
+    /*font-family: Arial;*/
+    font-size: 20px;
+    /*background-size: 200px;*/
+}
+.center{
     display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:50%;
 }
